@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lykdat Image Search With Custom Button</title>
+</head>
+<body>
+    This Button Triggers Image Search Modal
+    <br/>
+    <br/>
+    <button style="padding: 4px; border-radius: 5px;" id="img-search-trigger">CLICK ME</button>
+
+    <script type="module">
+        import { initImageSearch } from './dist/module.js'
+        window.initImageSearch = initImageSearch
+    </script>
+    <script>
+        window.addEventListener('load', () => {
+            initImageSearch({
+                apiKey: 'API KEY HERE',
+                catalogName: 'Another TS',
+                triggerSelector: '#img-search-trigger'
+            })
+        })
+    </script>
+</body>
+</html>

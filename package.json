@@ -21,10 +21,17 @@
     "url": "git+https://github.com/lykdatapps/js-sdk.git"
   },
   "keywords": [
-    "react",
-    "vuejs",
+    "computer-search",
+    "fashion",
+    "e-commerce",
+    "visual-search",
     "image-search",
-    "lykdat"
+    "search",
+    "lykdat",
+    "availability",
+    "product",
+    "restock",
+    "stock"
   ],
   "author": "ife@lykdat.com",
   "license": "MIT",

@@ -13,13 +13,13 @@
     <button style="padding: 4px; border-radius: 5px;" id="img-search-trigger">CLICK ME</button>
 
     <script type="module">
-        import { initImageSearch } from './dist/module.js'
-        window.initImageSearch = initImageSearch
+        import * as lykdatSDK from './dist/module.js'
+        window.lykdatSDK = lykdatSDK
     </script>
     <script>
         window.addEventListener('load', () => {
-            initImageSearch({
-                apiKey: 'API KEY HERE',
+            lykdatSDK.initImageSearchUI({
+                apiKey: 'API_KEY_HERE',
                 catalogName: 'Another TS',
                 triggerSelector: '#img-search-trigger'
             })

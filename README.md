@@ -116,7 +116,6 @@ window.addEventListener('load', () => {
 
 To see how the SDK is used in code examples, please [the examples folder](https://github.com/lykdatApps/js-sdk/tree/master/examples)
 
-- Image Search Example using []()
-- Image Search Example using []()
-- Product Alerts Example using []()
-- Product Alerts Example using []()
+- Image Search Example using the [default UI button](https://github.com/lykdatApps/js-sdk/tree/master/examples/imagesearch/vanilla)
+- Image Search Example using [a custom button](https://github.com/lykdatApps/js-sdk/tree/master/examples/imagesearch/vanilla-custom-button)
+- Product Alerts Example using [In-stock Alert UI](https://github.com/lykdatApps/js-sdk/tree/master/examples/productalerts/vanilla)

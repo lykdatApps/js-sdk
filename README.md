@@ -46,6 +46,10 @@ window.addEventListener('load', () => {
 })
 ```
 
+The Image Search UI looks something like this when the trigger button is clicked:
+
+![Image search](https://github.com/lykdatApps/js-sdk/raw/master/screenshots/imagesearch.png)
+
 ### Product Alert
 
 The Product Alert API offers both UI and non-UI functionality.
@@ -114,7 +118,7 @@ window.addEventListener('load', () => {
 
 The UI looks something like this when loaded to your website:
 
-![In Stock Alerts Form](screenshots/instockui.png)
+![In Stock Alerts Form](https://github.com/lykdatApps/js-sdk/raw/master/screenshots/instockui.png)
 
 ## Examples
 

@@ -1,6 +1,6 @@
 const assert = require("assert");
-const { useCleanEffect } = require("./dist/main");
+const { initImageSearchUI } = require("./dist/main");
 
-assert.equal(typeof useCleanEffect, "function");
+assert.equal(typeof initImageSearchUI, "function");
 
 console.log("OK!");

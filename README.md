@@ -26,7 +26,7 @@ import * as lykdat from 'lykdat'
 window.addEventListener('load', () => {
     lykdat.initImageSearchUI({
         apiKey: 'YOUR_API_KEY_HERE',
-        catalogName: 'Another TS',
+        catalogName: 'YOUR_CATALOG_NAME',
     })
 })
 ```
@@ -40,7 +40,7 @@ import * as lykdat from 'lykdat'
 window.addEventListener('load', () => {
     lykdat.initImageSearchUI({
         apiKey: 'YOUR_API_KEY_HERE',
-        catalogName: 'Another TS',
+        catalogName: 'YOUR_CATALOG_NAME',
         triggerSelector: '#my-button-id'
     })
 })
@@ -106,11 +106,15 @@ import * as lykdat from 'lykdat'
 window.addEventListener('load', () => {
     lykdat.initInStockAlertUI({
         publishableApiKey: 'YOUR_API_KEY_HERE',
-        websiteName: 'Another TS',
+        websiteName: 'YOUR_WEBSITE_NAME',
         targetSelector: '#back-in-stock-container'
     })
 })
 ```
+
+The UI looks something like this when loaded to your website:
+
+![In Stock Alerts Form](screenshots/instockui.png)
 
 ## Examples
 

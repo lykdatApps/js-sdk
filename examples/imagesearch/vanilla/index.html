@@ -10,14 +10,14 @@
     The Button on the bottom right triggers the Image Search Modal
 
     <script type="module">
-        import * as lykdatSDK from './dist/module.js'
+        import * as lykdatSDK from '../../node_modules/lykdat/dist/module.js'
         window.lykdatSDK = lykdatSDK
     </script>
     <script>
         window.addEventListener('load', () => {
             lykdatSDK.initImageSearchUI({
-                apiKey: 'API_KEY_HERE',
-                catalogName: 'Another TS',
+                publishableApiKey: 'API_KEY_HERE',
+                catalogName: 'YOUR_CATALOG_NAME',
             })
         })
     </script>

@@ -11,14 +11,14 @@
     <div id="back-in-stock-container"></div>
 
     <script type="module">
-        import * as lykdatSDK from './dist/module.js'
+        import * as lykdatSDK from '../../node_modules/lykdat/dist/module.js'
         window.lykdatSDK = lykdatSDK
     </script>
     <script>
         window.addEventListener('load', () => {
-            lykdatSDK.initBackInStockAlertUI({
-                apiKey: 'API_KEY_HERE',
-                websiteName: 'Another TS',
+            lykdatSDK.initInStockAlertUI({
+                publishableApiKey: 'API_KEY_HERE',
+                websiteName: 'YOUR_WEBSITE_NAME',
                 targetSelector: '#back-in-stock-container'
             })
         })

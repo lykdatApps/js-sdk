@@ -99,11 +99,11 @@ export function subscribeToInStockAlert(
     return fetch('https://cloudapi.lykdat.com/v1/products/alerts/subscribe', {
         method: 'POST',
         body: JSON.stringify(body),
-        headers: { 'x-api-key': config.publishableApiKey },
+        headers: { 'X-Api-Key': config.publishableApiKey, 'Content-Type': 'application/json' },
     }).then((resp) => {
         return resp.json().then((jsonData) => {
             if (resp.status !== 200) {
-                throw new Error(jsonData.message || `unable able to subscribe: ${resp.status}`)
+                throw new Error(jsonData.error || `unable able to subscribe: ${resp.status}`)
             }
 
             return { ...jsonData.data }
@@ -136,11 +136,11 @@ export function subscribeToInStockAlert(
     return fetch('https://cloudapi.lykdat.com/v1/products/alerts/subscribe', {
         method: 'POST',
         body: JSON.stringify(body),
-        headers: { 'x-api-key': config.publishableApiKey },
+        headers: { 'X-Api-Key': config.publishableApiKey, 'Content-Type': 'application/json' },
     }).then((resp) => {
         return resp.json().then((jsonData) => {
             if (resp.status !== 200) {
-                throw new Error(jsonData.message || `unable able to subscribe: ${resp.status}`)
+                throw new Error(jsonData.error || `unable able to subscribe: ${resp.status}`)
             }
 
             return { ...jsonData.data }

@@ -63,6 +63,17 @@ type ProductAlertConfig = {
     websiteName: string
 }
 
+type ProductAlertResponse = {
+    product?: {
+        name?: string
+        url: string
+        price: string
+        currency: string
+        images: string[]
+        in_stock: boolean
+    }
+}
+
 /**
  * Subscribes a user (whose email is provided) to be notified
  * when the specified prodduct becomes available (aka in-stock).
@@ -77,7 +88,7 @@ export function subscribeToInStockAlert(
     config: ProductAlertConfig,
     emailAddress: string,
     productUrl: string
-): Promise<void> {
+): Promise<ProductAlertResponse> {
     const body = {
         website_name: config.websiteName,
         subscriber_email: emailAddress,
@@ -90,11 +101,13 @@ export function subscribeToInStockAlert(
         body: JSON.stringify(body),
         headers: { 'x-api-key': config.publishableApiKey },
     }).then((resp) => {
-        if (resp.status !== 200) {
-            return resp.json().then((jsonData) => {
+        return resp.json().then((jsonData) => {
+            if (resp.status !== 200) {
                 throw new Error(jsonData.message || `unable able to subscribe: ${resp.status}`)
-            })
-        }
+            }
+
+            return { ...jsonData.data }
+        })
     })
 }
 
@@ -112,7 +125,7 @@ export function subscribeToInStockAlert(
     config: ProductAlertConfig,
     emailAddress: string,
     productUrl: string
-): Promise<void> {
+): Promise<ProductAlertResponse> {
     const body = {
         website_name: config.websiteName,
         subscriber_email: emailAddress,
@@ -125,10 +138,12 @@ export function subscribeToInStockAlert(
         body: JSON.stringify(body),
         headers: { 'x-api-key': config.publishableApiKey },
     }).then((resp) => {
-        if (resp.status !== 200) {
-            return resp.json().then((jsonData) => {
+        return resp.json().then((jsonData) => {
+            if (resp.status !== 200) {
                 throw new Error(jsonData.message || `unable able to subscribe: ${resp.status}`)
-            })
-        }
+            }
+
+            return { ...jsonData.data }
+        })
     })
 }

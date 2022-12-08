@@ -63,7 +63,7 @@ type ProductAlertConfig = {
     websiteName: string
 }
 
-type ProductAlertResponse = {
+export type ProductAlertResponse = {
     product?: {
         name?: string
         url: string

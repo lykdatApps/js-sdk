@@ -25,7 +25,7 @@ import * as lykdat from 'lykdat'
 
 window.addEventListener('load', () => {
     lykdat.initImageSearchUI({
-        apiKey: 'YOUR_API_KEY_HERE',
+        publishableApiKey: 'YOUR_API_KEY_HERE',
         catalogName: 'YOUR_CATALOG_NAME',
     })
 })
@@ -39,7 +39,7 @@ import * as lykdat from 'lykdat'
 
 window.addEventListener('load', () => {
     lykdat.initImageSearchUI({
-        apiKey: 'YOUR_API_KEY_HERE',
+        publishableApiKey: 'YOUR_API_KEY_HERE',
         catalogName: 'YOUR_CATALOG_NAME',
         triggerSelector: '#my-button-id'
     })
@@ -49,6 +49,33 @@ window.addEventListener('load', () => {
 The Image Search UI looks something like this when the trigger button is clicked:
 
 ![Image search](https://github.com/lykdatApps/js-sdk/raw/master/screenshots/imagesearch.png)
+
+### Text Search
+
+The Text Search API enables you do a full text search for Products in your Catalog. You can filter and sort by fields. The result also returns facets which can be important for eCommerce Search result pages.
+This functionality does not currently offer any UI related features.
+The Text Search function can be used like so:
+
+```js
+import * as lykdat from 'lykdat'
+
+const config = {
+    publishableApiKey: 'YOUR_API_KEY_HERE',
+    catalogName: 'YOUR_CATALOG_NAME',
+}
+
+const options = {
+    genders: ['male', 'unisex'],
+    colors: ['red', 'blue', 'navy']
+}
+
+lykdat.searchText('furry shorts', config, options).then((result) => {
+    console.log(result.products)
+    console.log(result.pagination)
+    console.log(result.facets)
+}).catch((err) => {
+    // handle error
+})
 
 ### Product Alert
 

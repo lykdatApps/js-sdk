@@ -76,6 +76,7 @@ lykdat.searchText('furry shorts', config, options).then((result) => {
 }).catch((err) => {
     // handle error
 })
+```
 
 ### Product Alert
 

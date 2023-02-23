@@ -63,15 +63,17 @@ type ProductAlertConfig = {
     websiteName: string
 }
 
+type Product = {
+    name?: string
+    url: string
+    price: string
+    currency: string
+    images: string[]
+    in_stock: boolean
+}
+
 export type ProductAlertResponse = {
-    product?: {
-        name?: string
-        url: string
-        price: string
-        currency: string
-        images: string[]
-        in_stock: boolean
-    }
+    product?: Product
 }
 
 /**
@@ -141,6 +143,52 @@ export function subscribeToInStockAlert(
         return resp.json().then((jsonData) => {
             if (resp.status !== 200) {
                 throw new Error(jsonData.error || `unable able to subscribe: ${resp.status}`)
+            }
+
+            return { ...jsonData.data }
+        })
+    })
+}
+
+/**
+ * Configuration object used to communicate with the Product Fetch API
+ */
+type ExtractionConfig = {
+    /**
+     * Your Lykdat Publishable API Key
+     */
+    publishableApiKey: string
+}
+
+export type ProductExtractResponse = {
+    product?: Product
+}
+
+/**
+ * Extract the basic info (name, price, currency) of a Product from its URL.
+ * @param {ExtractionConfig} config
+ * @param {string} productUrl the URL of the product whose details is to be extracted.
+ * @returns {ProductExtractResponse}
+ */
+export function extractProduct(
+    config: ExtractionConfig,
+    productUrl: string
+): Promise<ProductExtractResponse> {
+    const body = { product_url: productUrl }
+
+    return fetch('https://cloudapi.lykdat.com/v1/products/extract', {
+        method: 'POST',
+        body: JSON.stringify(body),
+        headers: {
+            'X-Api-Key': config.publishableApiKey,
+            'Content-Type': 'application/json',
+        },
+    }).then((resp) => {
+        return resp.json().then((jsonData) => {
+            if (resp.status !== 200) {
+                throw new Error(
+                    jsonData.error || `unable able to fetch product: ${resp.status}`
+                )
             }
 
             return { ...jsonData.data }

@@ -148,6 +148,33 @@ The UI looks something like this when loaded to your website:
 
 ![In Stock Alerts Form](https://github.com/lykdatApps/js-sdk/raw/master/screenshots/instockui.png)
 
+### Product Extraction
+
+The Product Extraction function extracts the details of any Product (name, price, currency, images, availability) from its Product URL.
+
+The function can be used like so:
+
+```js
+import * as lykdat from 'lykdat'
+
+const config = {
+    publishableApiKey: 'YOUR_API_KEY_HERE',
+}
+
+const productUrl = 'https://mywebsite.url/product/url'
+
+lykdat.extractProduct(config, productUrl).then((extraction) => {
+    if (extraction.product) {
+        console.log('success', extraction.product)
+    } else {
+        console.log('product could not be extracted :/')
+    }
+}).catch((err) => {
+    // handle error
+})
+```
+
+
 ## Examples
 
 To see how the SDK is used in code examples, please [the examples folder](https://github.com/lykdatApps/js-sdk/tree/master/examples)

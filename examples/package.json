@@ -9,6 +9,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "lykdat": "^0.0.1"
+    "lykdat": "^0.0.6"
   }
 }

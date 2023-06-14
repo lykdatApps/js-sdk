@@ -38,6 +38,7 @@ export function initImageSearchUI (config: ImageSearchConfig): void {
     attachIFrameStyle(iframeContainerId)
 
     button.addEventListener('click', () => {
+        document.body.classList.add('no-scroll')
         const iframeContainer = document.querySelector(`#${iframeContainerId}`)
         iframeContainer.classList.remove('hidden')
     })
@@ -47,7 +48,10 @@ export function initImageSearchUI (config: ImageSearchConfig): void {
             return
         }
 
-        if (event.data === 'close--lykdat--drawer') iframeContainer.classList.add('hidden')
+        if (event.data === 'close--lykdat--drawer') {
+            iframeContainer.classList.add('hidden')
+            document.body.classList.remove('no-scroll')
+        }
     }, false)
 
     let iframeContainer = document.querySelector<HTMLDivElement>(`div#${iframeContainerId}`)
@@ -81,6 +85,11 @@ function attachIFrameStyle (iframeId: string) {
     }
     #${iframeId}.hidden {
         display: none;
+    }
+
+    .no-scroll {
+        height: 100% !important;
+        overflow: hidden !important;
     }`
 
     const style_id = 'lykdat-img-search-iframe-container-style'

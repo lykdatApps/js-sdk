@@ -1,6 +1,6 @@
 {
   "name": "lykdat",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Official JavaScript SDK for Lykdat API (https://solutions.lykdat.com/)",
   "source": "src/index.ts",
   "main": "dist/main.js",
